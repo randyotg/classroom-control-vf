@@ -42,8 +42,9 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  exec { "cowsay  'Welcome  to ${: : fqdn}! ' >  /et c/motd":
+  exec { 'e7_2':
     path  =>  '/usr/local/bin',
+    command =>  "cowsay  'Welcome  to ${: : fqdn}! ' >  /etc/motd"
     create  =>  '/etc/motd',
   }
   notify { "Hello, my Puppet node name is ${::hostname}": }
