@@ -44,7 +44,7 @@ node default {
   #   class { 'my_class': }
   exec { 'e7_2':
     path  =>  '/usr/local/bin',
-    command =>  "cowsay 'Welcome to ${::fqdn}! > /etc/motd",
+    command =>  "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
     creates =>  '/etc/motd',
   }
   notify { "Hello, my Puppet node name is ${::hostname}": }
