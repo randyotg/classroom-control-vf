@@ -17,7 +17,7 @@ class nginx {
     require =>  Package['nginx'],
   }
   
-  file { '/var/wwww/index.html':
+  file { '/var/www/index.html':
     ensure  =>  file,
     source  =>  "puppet:///moudles/nginx/index.html",
   }  
