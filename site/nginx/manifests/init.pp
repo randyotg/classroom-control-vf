@@ -7,18 +7,19 @@ class nginx {
     ensure  =>  file,
     source  =>  "puppet:///moudles/nginx/nginx.conf",
     notify  =>  Service['nginx'],
+    require =>  Package['nginx'],
   }
 
   file { '/etc/nginx/conf.d/default.conf':
     ensure  =>  file,
     source  =>  "puppet:///moudles/nginx/default.conf",
     notify  =>  Service['nginx'],
+    require =>  Package['nginx'],
   }
   
   file { '/var/wwww/index.html':
     ensure  =>  file,
     source  =>  "puppet:///moudles/nginx/index.html",
-    require =>  File['/var/www'],
   }  
   
   file { '/var/www':
