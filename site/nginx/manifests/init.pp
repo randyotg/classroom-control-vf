@@ -1,6 +1,6 @@
 class nginx {
   package { 'nginx':
-    ensure  =>  installed,
+    ensure  =>  present,
   }
   
   file { '/etc/nginx/nginx.conf':
@@ -18,7 +18,12 @@ class nginx {
   file { '/var/wwww/index.html':
     ensure  =>  file,
     source  =>  "puppet:///moudles/nginx/index.html",
+    require =>  File['/var/www'],
   }  
+  
+  file { '/var/www':
+    ensure  =>  directory,
+  }
   
   service { 'nginx':
     ensure  =>  running,
