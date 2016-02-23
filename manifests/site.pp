@@ -55,6 +55,7 @@ node default {
     target       => '/etc/hosts',
   }
   
+  class { 'users': }
   notify { "Hello, my Puppet node name is ${::hostname}": }
 }
 
