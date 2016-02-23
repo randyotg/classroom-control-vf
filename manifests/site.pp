@@ -43,19 +43,8 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  exec { 'e7_2':
-    path  =>  '/usr/local/bin',
-    command =>  "cowsay 'Welcome to ${::fqdn}!' > /etc/motd",
-    creates =>  '/etc/motd',
-  }
+  include users
   
-  host { 'testing.puppetlabs.vm':
-    ensure       => 'present',
-    ip           => '127.0.0.1',
-    target       => '/etc/hosts',
-  }
-  
-  class { 'users': }
   notify { "Hello, my Puppet node name is ${::hostname}": }
 }
 
