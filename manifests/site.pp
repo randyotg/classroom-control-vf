@@ -43,8 +43,8 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  include users
-  include skeleton
+  # include users
+  # include skeleton
   notify { "Hello, my Puppet node name is ${::hostname}": }
 }
 
