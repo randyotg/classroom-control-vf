@@ -3,6 +3,12 @@ class nginx {
     ensure  =>  present,
   }
   
+  File {
+    owner =>  'root',
+    group =>  'root',
+    mode  =>  '0644',
+  }
+  
   file { '/etc/nginx/nginx.conf':
     ensure  =>  file,
     source  =>  "puppet:///modules/nginx/nginx.conf",
