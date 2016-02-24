@@ -45,7 +45,7 @@ node default {
   
   if $::is_virtual
   {
-    notify { "Running on ${::virtual}\n": }
+    notify { "Running on ${capitalize(::virtual)}\n": }
   }
   
   # include users
