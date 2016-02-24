@@ -43,6 +43,12 @@ node default {
   # Example:
   #   class { 'my_class': }
   
+  If $::is_virtual
+  {
+    $hyper = captialize($::virtual)
+    notify { "Running on ${hyper}\n": }
+  }  
+  
   # include users
   # include skeleton
   notify { "Hello, my Puppet node name is ${::hostname}": }
