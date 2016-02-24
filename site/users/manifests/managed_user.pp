@@ -10,6 +10,7 @@ define users::managed_user (
   }
   file { "$home_base/$title/.ssh",
     ensure  =>  directory,
+    mode    =>  '0700',
     require =>  User[$title],
   }
 }
