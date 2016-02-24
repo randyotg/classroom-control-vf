@@ -45,9 +45,8 @@ node default {
   
   If $::is_virtual
   {
-    $hypervisor = capitalize($::virtual)
-    notify { "Running on ${hypervisor}\n": }
-  }  
+    notify { "Running on ${capitalize($::virtual)}\n": }
+  }
   
   # include users
   # include skeleton
