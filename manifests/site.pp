@@ -43,7 +43,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  If $::is_virtual
+  if $::is_virtual
   {
     notify { "Running on ${::virtual}\n": }
   }
