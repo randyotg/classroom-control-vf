@@ -5,21 +5,21 @@ class nginx {
   
   file { '/etc/nginx/nginx.conf':
     ensure  =>  file,
-    source  =>  "puppet:///moudles/nginx/nginx.conf",
+    source  =>  "puppet:///modules/nginx/nginx.conf",
     notify  =>  Service['nginx'],
     require =>  Package['nginx'],
   }
 
   file { '/etc/nginx/conf.d/default.conf':
     ensure  =>  file,
-    source  =>  "puppet:///moudles/nginx/default.conf",
+    source  =>  "puppet:///modules/nginx/default.conf",
     notify  =>  Service['nginx'],
     require =>  Package['nginx'],
   }
   
   file { '/var/www/index.html':
     ensure  =>  file,
-    source  =>  "puppet:///moudles/nginx/index.html",
+    source  =>  "puppet:///modules/nginx/index.html",
   }  
   
   file { '/var/www':
