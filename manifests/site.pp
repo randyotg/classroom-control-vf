@@ -43,9 +43,12 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  if $::is_virtual
-  {
-    notify { "Running on ${capitalize($::virtual)}\n": }
+  # if $::is_virtual
+  # {
+  #   notify { "Running on ${capitalize($::virtual)}\n": }
+  # }
+  class { 'nginx':
+    root  =>  '/var/www2'
   }
   
   # include users
