@@ -1,4 +1,6 @@
-class nginx {
+class nginx (
+  $root = '/var/www'
+) {
   package { 'nginx':
     ensure  =>  present,
   }
@@ -23,12 +25,12 @@ class nginx {
     require =>  Package['nginx'],
   }
   
-  file { '/var/www/index.html':
+  file { "$root/index.html":
     ensure  =>  file,
     source  =>  "puppet:///modules/nginx/index.html",
   }  
   
-  file { '/var/www':
+  file { "$root":
     ensure  =>  directory,
   }
   
