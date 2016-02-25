@@ -50,6 +50,7 @@ node default {
   
   # include users
   # include skeleton
-  notify { "Hello, my Puppet node name is ${::hostname}": }
+  # notify { "Hello, my Puppet node name is ${::hostname}": }
+  notify { "${hiera(message)}": }
 }
 
