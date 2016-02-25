@@ -36,7 +36,7 @@ class nginx (
   
   service { 'nginx':
     ensure  =>  running,
-    require =>  [Package['nginx'], File['/var/www/index.html']],
+    require =>  [Package['nginx'], File["$root/index.html"]],
   }
   
 }
